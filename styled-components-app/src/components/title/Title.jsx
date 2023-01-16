@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Title = styled.h1`
-  color: red;
+  color: ${props => props.theme.colors.primary};
 `
 
 Title.defaultProps ={
