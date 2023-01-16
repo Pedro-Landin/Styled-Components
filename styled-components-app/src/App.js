@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
-import theme from "./theme";
+import theme, { darkThemeColors} from "./theme";
 import Title from "./components/title/Title";
 import Button from "./components/button/Button";
 
@@ -9,13 +10,33 @@ html, body {
 }
 `
 
+const darkTheme = {
+  ...theme,
+  colors: {
+    ...theme.colors,
+    ...darkThemeColors
+  }
+}
+
 function App() {
+  const [activeTheme, setActiveTheme] = useState(theme)
+
+  const handleTheme = () => {
+    if (activeTheme === theme) {
+      setActiveTheme(darkTheme)
+    } else {
+      setActiveTheme(theme)
+    }
+  }
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={activeTheme}>
       <GlobalStyle />
       <div className="App">
         <Title />
         <Button>Meu botão</Button>
+        <Button onClick={handleTheme}>Alterar tema</Button>
+        <Title>Outro titulo</Title>
       </div>
     </ThemeProvider>
   );

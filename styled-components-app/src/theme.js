@@ -6,4 +6,9 @@ const theme = {
   }
 }
 
+export const darkThemeColors = {
+  white: '#000',
+  black: '#fff'
+}
+
 export default theme
