@@ -36,7 +36,7 @@ function App() {
         <Title />
         <Button>Meu botão</Button>
         <Button onClick={handleTheme}>Alterar tema</Button>
-        <Title>Outro titulo</Title>
+        <Title>Outro titulo <span>Teste span</span></Title>
       </div>
     </ThemeProvider>
   );
